@@ -11,10 +11,10 @@ To install this plugin, simply run:
     USAGE:
         spin k8s <SUBCOMMAND>
     
-    OPTIONS:<br>
+    OPTIONS:
         -h, --help       Print help information
 
-    SUBCOMMANDS:<br>
+    SUBCOMMANDS:
         scaffold     Scaffold a new component into an existing application
         build        Build Spin Docker Container
         push         Push Spin Docker Containter to repository
