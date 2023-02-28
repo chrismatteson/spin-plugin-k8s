@@ -17,16 +17,60 @@ SUBCOMMANDS:
 "
 }
 
+helpScaffold () {
+    echo "
+Creates Dockerfile and deploy.yaml
+
+USAGE:
+    spin k8s scaffold <NAMESPACE>"
+}
+
+helpBuild () {
+  echo "
+Builds Spin Docker Container. Use after scaffolding is in place.
+Requires Docker to be installed.
+
+USAGE:
+    spin k8s build <NAMESPACE>"
+}
+
+helpPush () {
+  echo "
+Pushes Spin Docker Container to repository. Requires Docker to
+be installed and proper authentication in place to repository.
+
+USAGE:
+    spin k8s push <NAMESPACE>"
+}
+
+helpDeploy () {
+  echo "
+Deploys Spin app to Kubernetes cluster. Requires kubectl to be
+installed and KUBECONFIG environment variable to be set to valid
+kubeconfig file.
+
+USAGE:
+    spin k8s build <NAMESPACE>"
+}
+
 scaffold () {
+    for arg in "$@" ; do
+        case $arg in
+            -h) helpScaffold && exit;;
+            --help) helpScaffold && exit;;
+        esac
+    done
     NAME=`grep name spin.toml | cut -d'"' -f 2`
     SOURCE=`grep source spin.toml | cut -d'"' -f 2`
     BUILD=`grep command spin.toml | cut -d'"' -f 2`
     WASM=`echo $SOURCE | rev | cut -d'/' -f 1 | rev`
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     NAMESPACE=$1
-    NAMESPACE=$1
+    if [ $# -gt 1 ]; then
+        echo "Only one argument expected" && helpScaffold && exit
+    fi
     if [ -z $NAMESPACE ]; then
-        echo "No Docker Namespace defined"
+        echo "No Docker Namespace defined" && helpScaffold
     else
         if test -f "./Dockerfile"; then
             echo "Dockerfile already exists"
@@ -42,8 +86,6 @@ COPY --from=build $PWD/$SOURCE ./$SOURCE
 COPY --from=build $PWD/spin.toml .
 EOF
         echo "Dockerfile Created"
-#    sed -i '' "s%$SOURCE%$WASM%" spin.toml
-#    echo "spin.toml updated"
         fi
         if test -f "./deploy.yaml"; then
             echo "deploy.yaml already exists"
@@ -107,9 +149,18 @@ EOF
 }
 
 build () {
+    for arg in "$@" ; do
+        case $arg in
+            -h) helpBuild && exit;;
+            --help) helpBuild && exit;;
+        esac
+    done
     NAME=`grep name spin.toml | cut -d'"' -f 2`
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     NAMESPACE=$1
+    if [ $# -gt 1 ]; then
+        echo "Only one argument expected" && helpBuild && exit
+    fi
     if [ -z $NAMESPACE ]; then
         echo "No Docker Namespace defined"
     else
@@ -120,9 +171,18 @@ build () {
 }
 
 push () {
+    for arg in "$@" ; do
+        case $arg in
+            -h) helpPush && exit;;
+            --help) helpPush && exit;;
+        esac
+    done
     NAME=`grep name spin.toml | cut -d'"' -f 2`
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     NAMESPACE=$1
+    if [ $# -gt 1 ]; then
+        echo "Only one argument expected" && helpPush && exit
+    fi
     if [ -z $NAMESPACE ]; then
         echo "No Docker Namespace defined"
     else
@@ -134,14 +194,25 @@ push () {
 }
 
 deploy () {
+    for arg in "$@" ; do
+        case $arg in
+            -h) helpDeploy && exit;;
+            --help) helpDeploy && exit;;
+            *) echo "No arguments expected" && helpDeploy && exit;;
+        esac
+    done
     kubectl apply -f deploy.yaml
 }
+
+
+
 case "$1" in
     "") help;;
-    help) help;;
-    scaffold) scaffold $2;;
-    build) build $2;;
-    push) push $2;;
-    deploy) deploy;;
+    -h) help;;
+    --help) help;;
+    scaffold) shift && scaffold $@;;
+    build) shift && build $@;;
+    push) shift && push $@;;
+    deploy) shift && deploy $@;;
     *) echo "Command not understood" && help;;
 esac
