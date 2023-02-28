@@ -1,6 +1,11 @@
 # spin-plugin-k8s
 A Kubernetes Plugin for Fermyon Spin
 
+## Installation
+To install this plugin, simply run:
+
+    spin plugin install -u https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.json
+
 ## Usage
 
     USAGE:
