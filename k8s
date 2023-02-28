@@ -94,8 +94,6 @@ scaffold () {
     fi
     NAME=`grep name spin.toml | cut -d'"' -f 2`
     SOURCE=`grep source spin.toml | cut -d'"' -f 2`
-    BUILD=`grep command spin.toml | cut -d'"' -f 2`
-    WASM=`echo $SOURCE | rev | cut -d'/' -f 1 | rev`
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     NAMESPACE=$1
     if [ $# -gt 1 ] && [ -z $OVERRIDE ]; then
@@ -110,10 +108,9 @@ scaffold () {
             echo "Dockerfile already exists and override flag is not set"
         else
             cat << EOF > ./Dockerfile
-FROM --platform=\${BUILDPLATFORM} rust:1.59 AS build
+FROM scratch AS build
 WORKDIR $PWD
 COPY . .
-RUN rustup target add wasm32-wasi && $BUILD
 
 FROM scratch
 COPY --from=build $PWD/spin.toml .
