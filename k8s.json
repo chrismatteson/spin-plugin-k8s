@@ -10,31 +10,31 @@
             "os": "linux",
             "arch": "amd64",
             "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-            "sha256": "d9ef792e07640636717898e9e8f076a4b5c90dbecb3b5c02c8d318f84f4adf3f"
+            "sha256": "b931e19367ffdbb4ccd66e34c77dd75d7ad78845b1324531f10bc825c5218f8c"
         },
         {
             "os": "linux",
             "arch": "aarch64",
             "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-            "sha256": "d9ef792e07640636717898e9e8f076a4b5c90dbecb3b5c02c8d318f84f4adf3f"
+            "sha256": "b931e19367ffdbb4ccd66e34c77dd75d7ad78845b1324531f10bc825c5218f8c"
         },
         {
             "os": "macos",
             "arch": "amd64",
             "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-            "sha256": "d9ef792e07640636717898e9e8f076a4b5c90dbecb3b5c02c8d318f84f4adf3f"
+            "sha256": "b931e19367ffdbb4ccd66e34c77dd75d7ad78845b1324531f10bc825c5218f8c"
         },
         {
             "os": "macos",
             "arch": "aarch64",
             "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-            "sha256": "d9ef792e07640636717898e9e8f076a4b5c90dbecb3b5c02c8d318f84f4adf3f"
+            "sha256": "b931e19367ffdbb4ccd66e34c77dd75d7ad78845b1324531f10bc825c5218f8c"
         },
         {
             "os": "windows",
             "arch": "amd64",
             "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-            "sha256": "d9ef792e07640636717898e9e8f076a4b5c90dbecb3b5c02c8d318f84f4adf3f"
+            "sha256": "b931e19367ffdbb4ccd66e34c77dd75d7ad78845b1324531f10bc825c5218f8c"
         }
     ]
 }
