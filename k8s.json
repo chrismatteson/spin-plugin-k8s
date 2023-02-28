@@ -1,0 +1,22 @@
+{
+    "name": "k8s",
+    "description": "A Fermyon Spin plugin for Kubernetes",
+    "homepage": "https://github.com/chrismatteson/spin-plugin-k8s",
+    "version": "0.1.0",
+    "spinCompatibility": ">=0.4",
+    "license": "Apache-2.0",
+    "packages": [
+        {
+            "os": "linux",
+            "arch": "amd64",
+            "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
+            "sha256": "d90a83e4d4c62df75232a9c77633f9f1f12dd4554fe5184c254eec403a646dc1"
+        },
+        {
+            "os": "macos",
+            "arch": "aarch64",
+            "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
+            "sha256": "d90a83e4d4c62df75232a9c77633f9f1f12dd4554fe5184c254eec403a646dc1"
+        }
+    ]
+}
