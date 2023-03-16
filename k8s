@@ -139,7 +139,7 @@ spec:
       labels:
         app: $NAME
     spec:
-      runtimeClassName: wasmtime-spin-v1
+      runtimeClassName: wasmtime-spin
       containers:
         - name: $NAME
           image: $NAMESPACE/$NAME:$VERSION
