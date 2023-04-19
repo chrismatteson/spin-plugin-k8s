@@ -169,7 +169,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /$NAME
             pathType: Prefix
             backend:
               service:
