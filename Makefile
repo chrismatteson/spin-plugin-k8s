@@ -18,3 +18,8 @@ k8s.json: k8s.tar.gz
 
 k8s.tar.gz: k8s
 	tar czvf k8s.tar.gz k8s
+
+.PHONY: install-local
+install-local: k8s.local.json
+	@spin plugin uninstall k8s
+	@spin plugin install -y -f ./k8s.local.json
