@@ -108,15 +108,11 @@ scaffold () {
             echo "Dockerfile already exists and override flag is not set"
         else
             cat << EOF > ./Dockerfile
-FROM scratch AS build
-WORKDIR $PWD
-COPY . .
-
 FROM scratch
-COPY --from=build $PWD/spin.toml .
+COPY ./spin.toml ./spin.toml
 EOF
         for f in $SOURCE; do
-            printf "COPY --from=build $PWD/$f ./$f
+            printf "COPY ./$f ./$f
 " >> ./Dockerfile
         done
         echo "Dockerfile Created"
