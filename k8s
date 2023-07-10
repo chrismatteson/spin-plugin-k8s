@@ -190,7 +190,7 @@ build () {
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     TRIM=$((${#NAME} + ${#VERSION} + 3))
     NAMESPACE=`grep image deploy.yaml | cut -d' ' -f 12 | rev | cut -c$TRIM- | rev`
-    docker buildx build --platform=wasi/wasm -t $NAMESPACE/$NAME .
+    docker buildx build --provenance=false --platform=wasi/wasm -t $NAMESPACE/$NAME .
     docker tag $NAMESPACE/$NAME:latest $NAMESPACE/$NAME:$VERSION
     echo "Image built"
 }
