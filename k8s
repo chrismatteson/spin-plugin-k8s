@@ -135,11 +135,12 @@ spec:
       labels:
         app: $NAME
     spec:
-      runtimeClassName: wasmtime-spin-v1
+      runtimeClassName: wasmtime-spin
       containers:
         - name: $NAME
           image: $NAMESPACE/$NAME:$VERSION
           command: ["/"]
+          imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
@@ -187,6 +188,11 @@ build () {
         esac
     done
     NAME=`grep name spin.toml | cut -d'"' -f 2`
+    # Trimming fails for names shorter than 5 characters
+    if [ ${#NAME} -lt 5 ]; then
+        echo "Spin app name must be at least five characters to use k8s plugin"
+        exit 1
+    fi
     VERSION=`grep ^version spin.toml | cut -d'"' -f 2`
     TRIM=$((${#NAME} + ${#VERSION} + 3))
     NAMESPACE=`grep image deploy.yaml | cut -d' ' -f 12 | rev | cut -c$TRIM- | rev`

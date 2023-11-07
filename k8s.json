@@ -3,38 +3,38 @@
   "description": "A Fermyon Spin plugin for Kubernetes",
   "homepage": "https://github.com/chrismatteson/spin-plugin-k8s",
   "version": "0.1.0",
-  "spinCompatibility": ">=0.4",
+  "spinCompatibility": ">=1.5.1",
   "license": "Apache-2.0",
   "packages": [
     {
       "os": "linux",
       "arch": "amd64",
       "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-      "sha256": "037a32de013bb2da7bc7ac33fc348186c639a51a30683eedc60dd6b8f68c4035"
+      "sha256": "3de64d5fe1bf4014165cb87679391c6079eb3173ec67c2411f62118f314a4261"
     },
     {
       "os": "linux",
       "arch": "aarch64",
       "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-      "sha256": "037a32de013bb2da7bc7ac33fc348186c639a51a30683eedc60dd6b8f68c4035"
+      "sha256": "3de64d5fe1bf4014165cb87679391c6079eb3173ec67c2411f62118f314a4261"
     },
     {
       "os": "macos",
       "arch": "amd64",
       "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-      "sha256": "037a32de013bb2da7bc7ac33fc348186c639a51a30683eedc60dd6b8f68c4035"
+      "sha256": "3de64d5fe1bf4014165cb87679391c6079eb3173ec67c2411f62118f314a4261"
     },
     {
       "os": "macos",
       "arch": "aarch64",
       "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-      "sha256": "037a32de013bb2da7bc7ac33fc348186c639a51a30683eedc60dd6b8f68c4035"
+      "sha256": "3de64d5fe1bf4014165cb87679391c6079eb3173ec67c2411f62118f314a4261"
     },
     {
       "os": "windows",
       "arch": "amd64",
       "url": "https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.tar.gz",
-      "sha256": "037a32de013bb2da7bc7ac33fc348186c639a51a30683eedc60dd6b8f68c4035"
+      "sha256": "3de64d5fe1bf4014165cb87679391c6079eb3173ec67c2411f62118f314a4261"
     }
   ]
 }
